@@ -56,5 +56,33 @@ class GlucoseInput extends Component {
   }
 }
 
+class GlucoseView extends Component {
 
+	constructor() {
+    super();
+		this.state = { glucoseLevels: [] };
+	}
+
+	componentDidMount() {
+		this.fetchData();
+	}
+
+	fetchData() {
+		// get the data
+		fetch('http://localhost:3000/glucose', {
+			method: 'GET'
+		})
+		.then((res) => res.json()) // turn it into json
+		.then((data => this.setState({ glucoseLevels: data }))) //
+	}
+
+	render() {
+    return(
+		<div>
+			{this.state.glucoseLevels.map(level => (
+				<span>{level}</span>
+			))}
+		</div>
+	)}
+}
 export default App;
