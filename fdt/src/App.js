@@ -44,9 +44,13 @@ class GlucoseInput extends Component {
           onClick={() => {
             console.log(this.state);
             fetch('http://localhost:3000/glucose', {
-              method: 'POST',
-              body: JSON.stringify({
-                glucose: this.state.glucose
+              method: 'post',
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify ({
+                glucose: {level: this.state.glucose}
               })
             })
           }}
