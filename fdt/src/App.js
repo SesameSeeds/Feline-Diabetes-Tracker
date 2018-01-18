@@ -73,7 +73,7 @@ class GlucoseView extends Component {
 	}
 
 	fetchData() {
-		// get the data
+
 		fetch('http://localhost:3000/glucose', {
 			method: 'GET'
 		})
@@ -81,8 +81,8 @@ class GlucoseView extends Component {
       console.log('*****Fetched*****');
       console.log(res);
       return res.json();
-    }) // turn it into json
-		.then((data => this.setState({ glucoseLevels: data }))) //
+    })
+		.then((data => this.setState({ glucoseLevels: data })))
 	}
 
 	render() {
