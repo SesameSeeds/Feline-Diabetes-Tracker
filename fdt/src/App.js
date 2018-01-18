@@ -14,6 +14,7 @@ class App extends Component {
       Welcome to the Feline Diabetes Tracker!
       </p>
       <GlucoseInput/>
+      <GlucoseView/>
       </div>
     );
   }
@@ -24,7 +25,7 @@ class GlucoseInput extends Component {
   constructor() {
     super();
     this.state = {
-      glucose: 100
+      glucose: 0
     }
   }
 
@@ -76,7 +77,11 @@ class GlucoseView extends Component {
 		fetch('http://localhost:3000/glucose', {
 			method: 'GET'
 		})
-		.then((res) => res.json()) // turn it into json
+		.then((res) => {
+      console.log('*****Fetched*****');
+      console.log(res);
+      return res.json();
+    }) // turn it into json
 		.then((data => this.setState({ glucoseLevels: data }))) //
 	}
 
@@ -90,3 +95,6 @@ class GlucoseView extends Component {
 	)}
 }
 export default App;
+
+// Login and logout separate form for component
+// import axios in components that I'm calling from main component
