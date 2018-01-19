@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './glucose.js'
 // import logo from './logo.svg';
 import './App.css';
 
@@ -53,6 +54,7 @@ class GlucoseInput extends Component {
               body: JSON.stringify ({
                 glucose: {level: this.state.glucose}
               })
+
             })
           }}
         >Add!</button>
@@ -78,8 +80,6 @@ class GlucoseView extends Component {
 			method: 'GET'
 		})
 		.then((res) => {
-      console.log('*****Fetched*****');
-      console.log(res);
       return res.json();
     })
 		.then((data => this.setState({ glucoseLevels: data })))
@@ -87,11 +87,15 @@ class GlucoseView extends Component {
 
 	render() {
     return(
+
+      <div> Hello Hedwig - Your Glucose Readings:
 		<div>
-			{this.state.glucoseLevels.map(level => (
-				<span>{level}</span>
+			{this.state.glucoseLevels.map(record => (
+				<div key={record.id}>{JSON.stringify(record.level)}</div>
 			))}
 		</div>
+    </div>
+
 	)}
 }
 export default App;
