@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import Moment from 'moment';
+import LineChart from 'react-linechart'
 import './glucose.js'
 // import logo from './logo.svg';
+
 import './App.css';
+
 
 class App extends Component {
   render() {
@@ -85,19 +89,49 @@ class GlucoseView extends Component {
 		.then((data => this.setState({ glucoseLevels: data })))
 	}
 
+  render() {
+    return (
+      <div><GlucoseTable glucoseLevels={this.state.glucoseLevels}/>
+      <GlucoseChart glucoseChart={this.state.glucoseLevels}/>
+      </div>
+
+  )}
+}
+
+class GlucoseTable extends Component {
 	render() {
     return(
 
-      <div> Hello Hedwig - Your Glucose Readings:
-		<div>
-			{this.state.glucoseLevels.map(record => (
-				<div key={record.id}>{JSON.stringify(record.level)}</div>
-			))}
-		</div>
-    </div>
+		<table>
+    <thead>
+      <tr>
+        <th>Glucose</th>
+        <th>Date/Time</th>
+      </tr>
+    </thead>
+      <tbody>
+			   {this.props.glucoseLevels.map(record => (
+				      <tr key={record.id}>
+                <td>{record.level}</td>
+                <td>{Moment(record.created_at).format("LLLL")}</td>
+              </tr>
+			       ))}
+      </tbody>
+		</table>
 
 	)}
 }
+
+class GlucoseChart extends Component {
+	render() {
+    return(
+      <p>This is a Chart</p>
+
+
+	)}
+}
+
+
 export default App;
 
 // Login and logout separate form for component
