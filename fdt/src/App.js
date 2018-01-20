@@ -92,7 +92,7 @@ class GlucoseView extends Component {
   render() {
     return (
       <div><GlucoseTable glucoseLevels={this.state.glucoseLevels}/>
-      <GlucoseChart glucoseChart={this.state.glucoseLevels}/>
+      <GlucoseChart glucoseLevels={this.state.glucoseLevels}/>
       </div>
 
   )}
@@ -124,8 +124,30 @@ class GlucoseTable extends Component {
 
 class GlucoseChart extends Component {
 	render() {
+
+    const points = this.props.glucoseLevels.map(record => {
+      return {
+        x: Moment(record.created_at).format("YYYY-MM-DD"),
+        y: record.level
+      }
+    });
+
+
+    const data = [
+       {
+           color: "black",
+           points: points
+       }
+     ];
+
     return(
-      <p>This is a Chart</p>
+      <LineChart
+        width={900}
+        height={400}
+        data={data}
+        isDate={true}
+        interpolate={"Linear"}
+      />
 
 
 	)}
