@@ -105,15 +105,17 @@ class GlucoseTable extends Component {
 		<table>
     <thead>
       <tr>
-        <th>Glucose</th>
-        <th>Date/Time</th>
+        <th>Glucose Level</th>
+        <th>Date</th>
+        <th>Time</th>
       </tr>
     </thead>
       <tbody>
 			   {this.props.glucoseLevels.map(record => (
 				      <tr key={record.id}>
-                <td>{record.level}</td>
-                <td>{Moment(record.created_at).format("LLLL")}</td>
+                <td>{record.level} mg/dL</td>
+                <td>{Moment(record.created_at).format("LL")}</td>
+                <td>{Moment(record.created_at).format("LT")}</td>
               </tr>
 			       ))}
       </tbody>
@@ -136,7 +138,7 @@ class GlucoseChart extends Component {
     const data = [
        {
            color: "black",
-           points: points
+           points: points,
        }
      ];
 

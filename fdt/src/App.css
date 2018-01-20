@@ -31,3 +31,49 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/*Table*/
+
+table {
+  width: 100%;
+  display: table;
+}
+
+thead {
+  display: table-header-group;
+  background-color: gray;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+th {
+  display: table-cell;
+  padding: 10px;
+  text-align: justify;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+
+tbody {
+  display: table-row-group;
+  background-color: white;
+  padding: 10px;
+  text-align: justify;
+
+}
+
+
+tr{
+  display: table-row;
+
+}
+
+td {
+  display: table-cell;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
