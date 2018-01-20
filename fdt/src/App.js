@@ -14,6 +14,8 @@ class App extends Component {
       <header className="App-header">
 
       <h1 className="App-title">Feline Diabetes Tracker</h1>
+      <button className="login-button">Login</button>
+      <button className="logout-button">Logout</button>
       </header>
       <p className="App-intro">
       Welcome to the Feline Diabetes Tracker!
@@ -46,7 +48,7 @@ class GlucoseInput extends Component {
         }
         value={this.state.glucose}
         />
-        <button
+        <button className="add-button"
           onClick={() => {
             console.log(this.state);
             fetch('http://localhost:3000/glucose', {
@@ -144,11 +146,13 @@ class GlucoseChart extends Component {
 
     return(
       <LineChart
-        width={900}
+        width={1400}
         height={400}
         data={data}
         isDate={true}
         interpolate={"Linear"}
+        hideXLabel={true}
+        hideYLabel={true}
       />
 
 

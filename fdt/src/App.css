@@ -32,6 +32,18 @@
   to { transform: rotate(360deg); }
 }
 
+.login-button {
+  float: right;
+}
+
+.logout-button {
+  float: right;
+}
+
+.add-button {
+
+}
+
 /*Table*/
 
 table {
@@ -63,7 +75,6 @@ tbody {
   text-align: justify;
 
 }
-
 
 tr{
   display: table-row;
