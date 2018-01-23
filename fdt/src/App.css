@@ -53,7 +53,8 @@ table {
 
 thead {
   display: table-header-group;
-  background-color: gray;
+  background-color: black;
+  color: white;
   font-weight: bold;
   font-size: 25px;
 }

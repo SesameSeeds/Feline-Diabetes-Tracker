@@ -91,12 +91,24 @@ class GlucoseView extends Component {
 		.then((data => this.setState({ glucoseLevels: data })))
 	}
 
+  delete(glucoseLevels){
+
+    fetch('http://localhost:3000/glucose', {
+			method: 'DELETE'
+		})
+    const newState = this.state.data;
+  	if (newState.indexOf(glucoseLevels) > -1) {
+    	newState.splice(newState.indexOf(glucoseLevels), 1);
+      this.setState({data: newState})
+    }
+  }
+
   render() {
     return (
       <div><GlucoseTable glucoseLevels={this.state.glucoseLevels}/>
+
       <GlucoseChart glucoseLevels={this.state.glucoseLevels}/>
       </div>
-
   )}
 }
 
@@ -116,6 +128,10 @@ class GlucoseTable extends Component {
 			   {this.props.glucoseLevels.map(record => (
 				      <tr key={record.id}>
                 <td>{record.level} mg/dL</td>
+
+                <GlucoseTable deleteRecord={(recordId) => this.delete(recordId)}/>
+                <button onClick={() => this.props.deleteRecord(recordId)}>Delete</button>
+
                 <td>{Moment(record.created_at).format("LL")}</td>
                 <td>{Moment(record.created_at).format("LT")}</td>
               </tr>
@@ -162,5 +178,9 @@ class GlucoseChart extends Component {
 
 export default App;
 
-// Login and logout separate form for component
-// import axios in components that I'm calling from main component
+
+either recordId needs to be a prop passed into component (this.props.recordId)
+
+or
+
+needs to be passed as argument to arrow function
