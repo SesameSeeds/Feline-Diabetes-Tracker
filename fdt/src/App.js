@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import Moment from 'moment';
 import LineChart from 'react-linechart'
 import './glucose.js'
-// import logo from './logo.svg';
-
+// import Image from './whitecat1.jpg'
 import './App.css';
-
+const photo = require('./whitecat1.jpg');
 
 class App extends Component {
   render() {
@@ -13,10 +12,14 @@ class App extends Component {
       <div className="App">
       <header className="App-header">
 
-      <h1 className="App-title">Feline Diabetes Tracker</h1>
+
+
+      <h1 className="App-title"><img src={photo}/> Feline Diabetes Tracker </h1>
+
       <button className="login-button">Login</button>
       <button className="logout-button">Logout</button>
       </header>
+
       <p className="App-intro">
       Welcome to the Feline Diabetes Tracker!
       </p>
@@ -84,6 +87,7 @@ class GlucoseView extends Component {
 
 		fetch('http://localhost:3000/glucose', {
 			method: 'GET'
+
 		})
 		.then((res) => {
       return res.json();
@@ -91,21 +95,32 @@ class GlucoseView extends Component {
 		.then((data => this.setState({ glucoseLevels: data })))
 	}
 
-  delete(glucoseLevels){
+  delete(recordId){
 
-    fetch('http://localhost:3000/glucose', {
-			method: 'DELETE'
+    fetch('http://localhost:3000/glucose/' + recordId, {
+			method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify ({
+        glucose: {level: this.state.glucose}
+      })
+
 		})
-    const newState = this.state.data;
-  	if (newState.indexOf(glucoseLevels) > -1) {
-    	newState.splice(newState.indexOf(glucoseLevels), 1);
-      this.setState({data: newState})
-    }
+    .then((res) => {
+
+    const newGlucoseLevels = this.state.glucoseLevels.filter((record) => record.id !== recordId);
+
+    this.setState({glucoseLevels: newGlucoseLevels});
+    })
   }
+
 
   render() {
     return (
-      <div><GlucoseTable glucoseLevels={this.state.glucoseLevels}/>
+      <div><GlucoseTable glucoseLevels={this.state.glucoseLevels}
+      deleteRecord={(recordId) => this.delete(recordId)}/>
 
       <GlucoseChart glucoseLevels={this.state.glucoseLevels}/>
       </div>
@@ -127,10 +142,8 @@ class GlucoseTable extends Component {
       <tbody>
 			   {this.props.glucoseLevels.map(record => (
 				      <tr key={record.id}>
-                <td>{record.level} mg/dL</td>
-
-                <GlucoseTable deleteRecord={(recordId) => this.delete(recordId)}/>
-                <button onClick={() => this.props.deleteRecord(recordId)}>Delete</button>
+                <td>{record.level} mg/dL
+                <button onClick={() => this.props.deleteRecord(record.id)}>Delete</button></td>
 
                 <td>{Moment(record.created_at).format("LL")}</td>
                 <td>{Moment(record.created_at).format("LT")}</td>
@@ -175,12 +188,11 @@ class GlucoseChart extends Component {
 	)}
 }
 
-
 export default App;
 
-
-either recordId needs to be a prop passed into component (this.props.recordId)
-
-or
-
-needs to be passed as argument to arrow function
+//
+// either recordId needs to be a prop passed into component (this.props.recordId)
+//
+// or
+//
+// needs to be passed as argument to arrow function
