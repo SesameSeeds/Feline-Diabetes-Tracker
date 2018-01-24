@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Moment from 'moment';
-import LineChart from 'react-linechart'
-import './glucose.js'
-// import Image from './whitecat1.jpg'
+import LineChart from 'react-linechart';
+import './glucose.js';
 import './App.css';
 const photo = require('./whitecat1.jpg');
+const hedwig = require('./Hedwig.png')
 
 class App extends Component {
   render() {
@@ -12,17 +12,12 @@ class App extends Component {
       <div className="App">
       <header className="App-header">
 
+      <h1 className="App-title"><img src={photo} className="logo" alt="Laying Cat Logo"/> Feline Diabetes Tracker </h1>
 
+      <h2 className="welcome"><img src={hedwig} className="hedwig" alt="Hedwig"/> Welcome Hedwig!</h2>
 
-      <h1 className="App-title"><img src={photo}/> Feline Diabetes Tracker </h1>
-
-      <button className="login-button">Login</button>
-      <button className="logout-button">Logout</button>
       </header>
 
-      <p className="App-intro">
-      Welcome to the Feline Diabetes Tracker!
-      </p>
       <GlucoseInput/>
       <GlucoseView/>
       </div>
@@ -41,8 +36,10 @@ class GlucoseInput extends Component {
 
   render() {
     return (
-      <div>
-        Add Glucose Level!
+      <div className="glucosecontainer">
+      <div className="glucoseviewsection">
+
+        <h3>Update Glucose Level &nbsp;&nbsp;
         <input
           type="number"
           onChange={(event) => {
@@ -66,7 +63,9 @@ class GlucoseInput extends Component {
 
             })
           }}
-        >Add!</button>
+        >Submit</button>
+        </h3>
+      </div>
       </div>
     )
   }
@@ -119,10 +118,19 @@ class GlucoseView extends Component {
 
   render() {
     return (
-      <div><GlucoseTable glucoseLevels={this.state.glucoseLevels}
-      deleteRecord={(recordId) => this.delete(recordId)}/>
+      <div className="glucosecontainer">
+        <div className="glucoseviewsection">
+          <GlucoseTable
+            glucoseLevels={this.state.glucoseLevels}
+            deleteRecord={(recordId) => this.delete(recordId)}
+          />
+        </div>
 
-      <GlucoseChart glucoseLevels={this.state.glucoseLevels}/>
+        <div className="glucoseviewsection">
+          <GlucoseChart
+            glucoseLevels={this.state.glucoseLevels}
+          />
+        </div>
       </div>
   )}
 }
@@ -137,16 +145,16 @@ class GlucoseTable extends Component {
         <th>Glucose Level</th>
         <th>Date</th>
         <th>Time</th>
+        <th></th>
       </tr>
     </thead>
       <tbody>
 			   {this.props.glucoseLevels.map(record => (
 				      <tr key={record.id}>
-                <td>{record.level} mg/dL
-                <button onClick={() => this.props.deleteRecord(record.id)}>Delete</button></td>
-
+                <td>{record.level} mg/dL</td>
                 <td>{Moment(record.created_at).format("LL")}</td>
                 <td>{Moment(record.created_at).format("LT")}</td>
+                <td className="delete-button"><button onClick={() => this.props.deleteRecord(record.id)}>Delete</button></td>
               </tr>
 			       ))}
       </tbody>
@@ -160,25 +168,25 @@ class GlucoseChart extends Component {
 
     const points = this.props.glucoseLevels.map(record => {
       return {
-        x: Moment(record.created_at).format("YYYY-MM-DD"),
+        x: Moment(record.created_at).format("x"),
         y: record.level
       }
     });
 
-
     const data = [
        {
-           color: "black",
+           color: "#2b9b66",
            points: points,
        }
      ];
 
     return(
+
       <LineChart
-        width={1400}
-        height={400}
+        width={600}
+        height={300}
         data={data}
-        isDate={true}
+        xDisplay={x => Moment(x).format('M/D-h:mm')}
         interpolate={"Linear"}
         hideXLabel={true}
         hideYLabel={true}
@@ -189,10 +197,3 @@ class GlucoseChart extends Component {
 }
 
 export default App;
-
-//
-// either recordId needs to be a prop passed into component (this.props.recordId)
-//
-// or
-//
-// needs to be passed as argument to arrow function

@@ -1,12 +1,11 @@
+/*Main shit*/
 .App {
   text-align: left;
-  background-color: #16A089;
+  background-color: black;
+
+
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
 
 .App-header {
   background-color: black;
@@ -14,11 +13,11 @@
   padding: 5px;
   color: white;
   font-family: 'Bubbler One', sans-serif;
+  border-bottom: 100px solid #2b9b66;
 }
 
 .App-title {
   font-size: 3.5em;
-
 }
 
 .App-intro {
@@ -27,65 +26,100 @@
   font-family: 'Quicksand', sans-serif;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+
+/*Photos*/
+
+.logo {
+  padding-left: 5px;
+  margin-top: 5px;
 }
 
-.login-button {
-  float: right;
+.hedwig {
+  border: 3px solid #2b9b66;
 }
 
-.logout-button {
-  float: right;
+
+/*Table and Chart Containers*/
+
+.glucosecontainer {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 10px;
+  justify-content: center;
 }
 
-.add-button {
+.glucoseviewsection {
+  border: 5px solid grey;
+  background: white;
+  padding: 20px;
+  margin: 10px;
+  max-width: 600px;
 
 }
+
 
 /*Table*/
 
 table {
   width: 100%;
-  display: table;
-}
-
-thead {
-  display: table-header-group;
-  background-color: black;
-  color: white;
-  font-weight: bold;
-  font-size: 25px;
+  table-layout: fixed;
+  border-collapse: collapse;
 }
 
 th {
   display: table-cell;
   padding: 10px;
-  text-align: justify;
-  border-bottom: 2px solid black;
-  border-top: 2px solid black;
-  border-left: 2px solid black;
-  border-right: 2px solid black;
+  text-align: center;
+  border: none;
+  background-color: #2b9b66;
+  color: black;
 }
 
 tbody {
   display: table-row-group;
   background-color: white;
   padding: 10px;
-  text-align: justify;
-
+  text-align: center;
 }
 
 tr{
   display: table-row;
-
 }
+
+ tr:nth-child(odd) {
+   background-color: #eee;
+ }
 
 td {
   display: table-cell;
-  border-bottom: 1px solid black;
-  border-top: 1px solid black;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+  border: none;
+  padding: 6px;
+}
+
+body{
+  background: black;
+
+}
+section{
+  margin: 50px;
+}
+
+
+/*text*/
+
+h3 {
+  font-family: 'Bubbler One', sans-serif;
+}
+
+/*buttons*/
+
+
+
+.add-button:hover {
+  background: #2b9b66;
+  text-decoration: none;
+}
+
+td.delete-button {
+
 }
