@@ -1,10 +1,5 @@
 /*Main shit*/
 
-.App {
-  text-align: left;
-  background: radial-gradient(#2b9b66, #2d423a);
-}
-
 body {
   text-align: left;
   background: radial-gradient(#2b9b66, #2d423a);
@@ -19,7 +14,6 @@ body {
   padding: 20px;
   color: white;
   font-family: 'Bubbler One', sans-serif;
-
 }
 
 .logo {
@@ -31,7 +25,6 @@ body {
   display: flex;
   align-items: center;
 }
-
 
 .App-title {
   font-size: 3.5em;
@@ -69,7 +62,6 @@ body {
   padding: 20px;
   margin: 10px;
   max-width: 600px;
-
 }
 
 
@@ -126,12 +118,34 @@ h3 {
 /*buttons*/
 
 .add-button:hover {
-  background: #2b9b66;
+  color: #2b9b66;
   text-decoration: none;
+  cursor: pointer;
+}
+.add-button {
+  margin-left: 20px;
+  color: black;
 }
 
 a {
   color: blue;
   cursor: pointer;
   text-decoration: underline;
+}
+
+a:hover {
+  color: #2b9b66;
+}
+
+.Logout {
+  cursor: pointer;
+  margin: 20px;
+}
+
+.Logout:hover {
+  color: #2b9b66;
+}
+
+.footer {
+  text-align: center;
 }

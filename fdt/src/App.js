@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
 
-      <div className="App">
+      <div>
           <header className="App-header">
             <div className="logo">
               <img src={photo} className="logo" alt="Laying Cat Logo"/>
@@ -21,11 +21,16 @@ class App extends Component {
             <div className="logo-two">
               <img src={hedwig} className="hedwig" alt="Hedwig"/>
               <h2 className="welcome">Welcome Hedwig!</h2>
+              <h3 className="Logout">Sign Out</h3>
             </div>
+
+
           </header>
 
         <GlucoseInput/>
         <GlucoseView/>
+
+
       </div>
     );
   }
@@ -121,7 +126,6 @@ class GlucoseView extends Component {
     })
   }
 
-
   render() {
     return (
       <div className="glucosecontainer">
@@ -192,7 +196,7 @@ class GlucoseChart extends Component {
         width={600}
         height={300}
         data={data}
-        xDisplay={x => Moment(x).format('M/D')}
+        xDisplay={x => Moment(x).format('M/DD')}
         interpolate={"Linear"}
         hideXLabel={true}
         hideYLabel={true}
