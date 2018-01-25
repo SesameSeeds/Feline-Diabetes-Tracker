@@ -11,21 +11,21 @@ class App extends Component {
     return (
 
       <div className="App">
-      <div className="header">
+          <header className="App-header">
+            <div className="logo">
+              <img src={photo} className="logo" alt="Laying Cat Logo"/>
 
-      <header className="App-header">
-      <img src={photo} className="logo" alt="Laying Cat Logo"/>
+              <h1 className="App-title">Feline Diabetes Tracker </h1>
+            </div>
 
-      <h1 className="App-title">Feline Diabetes Tracker </h1>
+            <div className="logo-two">
+              <img src={hedwig} className="hedwig" alt="Hedwig"/>
+              <h2 className="welcome">Welcome Hedwig!</h2>
+            </div>
+          </header>
 
-      <h2 className="welcome"><img src={hedwig} className="hedwig" alt="Hedwig"/> Welcome Hedwig!</h2>
-
-      </header>
-
-      <GlucoseInput/>
-      <GlucoseView/>
-
-      </div>
+        <GlucoseInput/>
+        <GlucoseView/>
       </div>
     );
   }
