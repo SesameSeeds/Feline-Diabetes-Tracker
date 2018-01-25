@@ -9,10 +9,14 @@ const hedwig = require('./Hedwig.png')
 class App extends Component {
   render() {
     return (
-      <div className="App">
-      <header className="App-header">
 
-      <h1 className="App-title"><img src={photo} className="logo" alt="Laying Cat Logo"/> Feline Diabetes Tracker </h1>
+      <div className="App">
+      <div className="header">
+
+      <header className="App-header">
+      <img src={photo} className="logo" alt="Laying Cat Logo"/>
+
+      <h1 className="App-title">Feline Diabetes Tracker </h1>
 
       <h2 className="welcome"><img src={hedwig} className="hedwig" alt="Hedwig"/> Welcome Hedwig!</h2>
 
@@ -20,6 +24,8 @@ class App extends Component {
 
       <GlucoseInput/>
       <GlucoseView/>
+
+      </div>
       </div>
     );
   }
@@ -154,7 +160,7 @@ class GlucoseTable extends Component {
                 <td>{record.level} mg/dL</td>
                 <td>{Moment(record.created_at).format("LL")}</td>
                 <td>{Moment(record.created_at).format("LT")}</td>
-                <td className="delete-button"><button onClick={() => this.props.deleteRecord(record.id)}>Delete</button></td>
+                <td className="delete-button"><a onClick={() => this.props.deleteRecord(record.id)}>Delete</a></td>
               </tr>
 			       ))}
       </tbody>
@@ -186,7 +192,7 @@ class GlucoseChart extends Component {
         width={600}
         height={300}
         data={data}
-        xDisplay={x => Moment(x).format('M/D-h:mm')}
+        xDisplay={x => Moment(x).format('M/D')}
         interpolate={"Linear"}
         hideXLabel={true}
         hideYLabel={true}
