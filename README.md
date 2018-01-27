@@ -17,8 +17,8 @@ Please follow the links to find project information, installation instructions t
 3. [Trello Board](https://trello.com/b/OFmrJAGN/stef-capstone)
 4. [Feline Diabetes Tracker API](https://fdtbe.herokuapp.com/)
 5. [Feline Diabetes Tracker](https://fdtbe.herokuapp.com/)
-6. [Feline Diabetes Tracker API Repository](https://github.com/SesameSeeds/Feline-Diabetes-Tracker-API)
-7. [Feline Diabetes Tracker Repository](https://github.com/SesameSeeds/Feline-Diabetes-Tracker)
+6. [Feline Diabetes Tracker API Repository](https://github.com/SesameSeeds/Feline-Diabetes-Tracker-API/tree/master/f-d-t-be)
+7. [Feline Diabetes Tracker Repository](https://github.com/SesameSeeds/Feline-Diabetes-Tracker/tree/master/fdt)
 
 ## Installation
 1. Clone this repo: `git clone https://github.com/SesameSeeds/Feline-Diabetes-Tracker.git`
@@ -33,6 +33,7 @@ cd ../fdt
 ```
 npm start
 ```
+4. When prompted if you would like to use another server type in Y.  You should be locally running the front end on localhost:3000.
 
 ### Screenshot
-![FDT](./src/webapp.png)
+![FDT](./fdt/src/webapp.png)
