@@ -1,7 +1,7 @@
 # Feline-Diabetes-Tracker
 [Ada Developers Academy Capstone Project](https://github.com/Ada-C8/capstone)  
 
-This is the repository for Feline Diabetes Tracker, an ADA capstone project. This project was built using the following tech stack;
+This is the repository for Feline Diabetes Tracker, an Ada Developers Academy capstone project. This project was built using the following tech stack;
 
 - React.js - Front End with Create React App.
 - Ruby on Rails - Back End
@@ -17,6 +17,8 @@ Please follow the links to find project information, installation instructions t
 3. [Trello Board](https://trello.com/b/OFmrJAGN/stef-capstone)
 4. [Feline Diabetes Tracker API](https://fdtbe.herokuapp.com/)
 5. [Feline Diabetes Tracker](https://fdtbe.herokuapp.com/)
+6. [Feline Diabetes Tracker API Repository](https://github.com/SesameSeeds/Feline-Diabetes-Tracker-API)
+7. [Feline Diabetes Tracker Repository](https://github.com/SesameSeeds/Feline-Diabetes-Tracker)
 
 ## Installation
 1. Clone this repo: `git clone https://github.com/SesameSeeds/Feline-Diabetes-Tracker.git`
@@ -33,4 +35,4 @@ npm start
 ```
 
 ### Screenshot
-
+![FDT](./src/webapp.png)
