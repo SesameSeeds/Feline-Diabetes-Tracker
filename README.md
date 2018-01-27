@@ -1,4 +1,4 @@
-# Feline-Diabetes-Tracker
+# Feline Diabetes Tracker
 [Ada Developers Academy Capstone Project](https://github.com/Ada-C8/capstone)  
 
 This is the repository for Feline Diabetes Tracker, an Ada Developers Academy capstone project. This project was built using the following tech stack;
