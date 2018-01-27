@@ -15,10 +15,9 @@ Please follow the links to find project information, installation instructions t
 1. [Capstone Concept](https://gist.github.com/SesameSeeds/89c64ce45d00cc2cd12bf7c3bda637e8)
 2. [Capstone Product Plan](https://gist.github.com/SesameSeeds/29afe946d67b764db641819a82801405)
 3. [Trello Board](https://trello.com/b/OFmrJAGN/stef-capstone)
-4. [Feline Diabetes Tracker API](https://fdtbe.herokuapp.com/)
-5. [Feline Diabetes Tracker](http://fdt.surge.sh/)
-6. [Feline Diabetes Tracker API Repository](https://github.com/SesameSeeds/Feline-Diabetes-Tracker-API/tree/master/f-d-t-be)
-7. [Feline Diabetes Tracker Repository](https://github.com/SesameSeeds/Feline-Diabetes-Tracker/tree/master/fdt)
+4. [Feline Diabetes Tracker - Live Web Application](http://fdt.surge.sh/)
+5. [Feline Diabetes Tracker API Repository](https://github.com/SesameSeeds/Feline-Diabetes-Tracker-API/tree/master/f-d-t-be)
+6. [Feline Diabetes Tracker Repository](https://github.com/SesameSeeds/Feline-Diabetes-Tracker/tree/master/fdt)
 
 ## Installation
 1. Clone this repo: `git clone https://github.com/SesameSeeds/Feline-Diabetes-Tracker.git`
